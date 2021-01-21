@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!--Icon for the website-->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>All About Me</title>
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <!--div containing the page header-->
+    <div class="title-content">
+        <header>
+            <h1>Justin Lawrence</h1>
+        </header>
+    </div>
+
+    <hr />
+
+    <!--div containing the main body-->
+    <div class="content">
+        <!--Image of something I enjoy-->
+        <div>
+            <img class="image" src="img/balloons.jpg" />
+            <p class="description">Here is a picture of me making balloon animals on my mission.</p>
+        </div>
+
+        <!--What I hope to get out of IS 413-->
+        <div>
+            <h2>What do I hope to get out of IS 413?</h2>
+            <p>There are several things I hope to get out of IS 413. First, I am excited to learn another programming language (C#), and another way to create a Web App.
+            I want to take the skills I learn from this class and apply them on my job. I would love to use what I learn in class in an internship this summer. My primary
+            interest is in develop, so I want to soak in all I can and go above and beyond where my schedule permits.</p>
+        </div>
+
+        <!--Top #3 jobs for me-->
+        <div>
+            <h2>My top 3 jobs</h2>
+            <ol>
+                <li>Software Developer</li>
+                <li>Fullstack Developer</li>
+                <li>Security Analyst</li>
+            </ol>
+        </div>
+
+        <!--Grade calculator portion-->
+        <div>
+            <!--collect inputs-->
+            <h2>Enter your percentage for each category out of 100 (ex. 84)</h2>
+            <form>
+                <label>Assignments: </label>
+                <input id="assignments" type="text" />
+                <br />
+                <label>Group Project: </label>
+                <input id="groupProject" type="text" />
+                <br />
+                <label>Quizzes: </label>
+                <input id="quizzes" type="text" />
+                <br />
+                <label>Exams: </label>
+                <input id="exams" type="text" />
+                <br />
+                <label>Intex: </label>
+                <input id="intex" type="text" />
+                <br />
+                <label>Final Grade: </label>
+                <p style="display: inline-block" id="finalGrade"></p>
+            </form>
+            <br />
+            <input class="btn" type="submit" value="Calculate" id="formResponse" />
+        </div>
+    </div>
+
+    <script src="js/grader.js"></script>
+</body>
+</html>
