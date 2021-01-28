@@ -1,6 +1,4 @@
-﻿let submit = document.getElementById("formResponse")
-
-// compute the grade with the given weights
+﻿// compute the grade with the given weights
 const computeGrade = () => {
     // weights for each portion
     const assignmentsWeight = 0.5
@@ -11,11 +9,11 @@ const computeGrade = () => {
 
     // attempt to calculate grade
     try {
-        let assignments = parseFloat(document.getElementById("assignments").value) * assignmentsWeight
-        let groupProject = parseFloat(document.getElementById("groupProject").value) * groupProjectWeight
-        let quizzes = parseFloat(document.getElementById("quizzes").value) * quizzesWeight
-        let exams = parseFloat(document.getElementById("exams").value) * examsWeight
-        let intex = parseFloat(document.getElementById("intex").value) * intexWeight
+        let assignments = parseFloat($("#assignments").val()) * assignmentsWeight
+        let groupProject = parseFloat($("#groupProject").val()) * groupProjectWeight
+        let quizzes = parseFloat($("#quizzes").val()) * quizzesWeight
+        let exams = parseFloat($("#exams").val()) * examsWeight
+        let intex = parseFloat($("#intex").val()) * intexWeight
 
         // add weights to create final grade
         const finalGrade = Math.round(((assignments + groupProject + quizzes + exams + intex) * 100)) /100
@@ -24,10 +22,34 @@ const computeGrade = () => {
             throw "One or more inputs is not a valid number."
         }
 
+        // only calculate if number is beetween 0 and 100
+        if ($("#assignments").val() > 100 || $("#assignments").val() < 0) {
+            throw "Must be a valid number between 0 and 100."
+        }
+
+        if ($("#groupProject").val() > 100 || $("#groupProject").val() < 0) {
+            throw "Must be a valid number between 0 and 100."
+        }
+
+        if ($("#quizzes").val() > 100 || $("#quizzes").val() < 0) {
+            throw "Must be a valid number between 0 and 100."
+        }
+
+        if ($("#exams").val() > 100 || $("#exams").val() < 0) {
+            throw "Must be a valid number between 0 and 100."
+        }
+
+        if ($("#intex").val() > 100 || $("#intex").val() < 0) {
+            throw "Must be a valid number between 0 and 100."
+        }
+
         // add letter to grade
         let output = finalGrade.toString() + "%"
 
-        if (finalGrade < 64) {
+        if (finalGrade < 60) {
+            output += " (E)"
+        }
+        else if (finalGrade < 64) {
             output += " (D-)"
         }
         else if (finalGrade < 67) {
@@ -61,8 +83,13 @@ const computeGrade = () => {
             output += " (A)"
         }
 
+        // save last calculated grade in session storage
+        sessionStorage.setItem("finalGrade", output)
+
         // output final grade with letter
-        document.getElementById("finalGrade").innerHTML = output
+        $("#finalGrade").html(output)
+
+        alert("Final Grade: " + output)
     }
     // alert if calculation fails
     catch (err) {
@@ -71,4 +98,11 @@ const computeGrade = () => {
 }
 
 // add an event listener
-submit.addEventListener("click", computeGrade)
+$("#formResponse").click(computeGrade)
+
+// grab grade from session storage and assign it to final grade
+$(document).ready(() => {
+    if (sessionStorage.getItem("finalGrade")) {
+        $("#finalGrade").html(sessionStorage.getItem("finalGrade"))
+    }
+})

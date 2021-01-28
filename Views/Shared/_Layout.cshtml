@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!--Icon for the website-->
+    <link rel="icon" type="image/png" href="~/favicon.png" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <!--div containing the page header-->
+    <div class="title-content">
+        <header>
+            <h1>@ViewBag.Title</h1>
+        </header>
+    </div>
+
+    <div>
+        <menu class="nav-bar">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Grader">Grade Calculator</a></li>
+            </ul>
+        </menu>
+    </div>
+
+    <hr />
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/grader.js"></script>
+</body>
+</html>

@@ -50,4 +50,53 @@ h2 {
     display: inline-block;
     font-size: 16px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.alert ul {
+    list-style-type: none;
+    color: red;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+.nav-bar {
+    font-size: 32px;
+}
+
+.output-text {
+    font-size: 32px;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav-bar li {
+    float: left;
+}
+
+.nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-bar li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+menu {
+    margin-top: 0px;
+    padding-left: 0px;
 }
